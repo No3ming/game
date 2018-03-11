@@ -6,30 +6,31 @@
 
 import React, { Component } from 'react';
 import {
-    StackNavigator,
+  StackNavigator,
 } from 'react-navigation';
+import {Color} from './theme/thme'
 
- import Login from './views/Login'
- import Home from './views/Home'
- import WelCome from './views/Welcome'
+import Login from './views/Login'
+import Home from './views/Home'
+import WelCome from './views/Welcome'
 
 const App = StackNavigator({
     WelCome: {screen: WelCome},
     Login: {screen: Login},
     Home: {screen: Home}
+  },
+  {
+    initialRouteName: 'Login',
+    /* The header config from HomeScreen is now here */
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: Color.dangerColor,
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
     },
-    {
-        initialRouteName: 'WelCome',
-        /* The header config from HomeScreen is now here */
-        navigationOptions: {
-            headerStyle: {
-                backgroundColor: '#f4511e',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-                fontWeight: 'bold',
-            },
-        },
-    }
+  }
 );
 export default App

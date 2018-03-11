@@ -1,21 +1,73 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
-    Text,
-    View,
-    Button
+  Text,
+  View,
+  TextInput,
+  StyleSheet
 } from 'react-native';
+import Button from 'apsl-react-native-button'
+import {Theme, Color} from '../theme/thme'
 
+console.log(Theme)
 class Login extends React.Component {
-    render() {
-        const { navigate } = this.props.navigation;
-        return (
-            <Button
-                title="Go to Jane's profile"
-                onPress={() =>
-                    navigate('Home', { name: 'Jane' })
-                }
-            />
-        );
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: '',
+      password: ''
     }
+  }
+
+  static navigationOptions = {
+    title: '登录欢乐玩'
+  }
+
+  render() {
+    const {navigate} = this.props.navigation;
+    return (
+      <View style={styles.container}>
+        <View style={styles.inputBox}>
+          <TextInput style={styles.userName}
+                     placeholder="手机号"
+                     underlineColorAndroid={'transparent'}
+                     selectionColor={Color.waringColor}
+                     onChangeText={(username) => this.setState({username})}/>
+          <TextInput style={styles.password}
+                     placeholder="密码"
+                     value={this.state.password}
+                     secureTextEntry={true}
+                     clearTextOnFocus={true}
+                     underlineColorAndroid={'transparent'}
+                     onChangeText={(password) => this.setState({password})}/>
+          <View style={styles.loginBtn}>
+            <Button style={Theme.btnDanger}
+                    onPress={() => navigate('Login')}
+                    textStyle={Theme.btnText}>登录</Button>
+          </View>
+        </View>
+      </View>
+    );
+  }
 }
-export  default  Login
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  inputBox: {
+    width: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loginBtn: {
+    width: '100%',
+    paddingTop: 10
+  },
+  userName: {height: 40, width: '100%',  borderWidth: 1, paddingLeft: 10, borderColor: Color.borderColor},
+  password: {height: 40, width: "100%",  borderWidth: 1, paddingLeft: 10, borderTopWidth: 0, borderColor: Color.borderColor}
+});
+
+export default Login

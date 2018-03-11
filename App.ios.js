@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import {
     StackNavigator,
 } from 'react-navigation';
+import {Color} from './theme/thme'
 
  import Login from './views/Login'
  import Home from './views/Home'
@@ -19,11 +20,11 @@ const App = StackNavigator({
     Home: {screen: Home}
     },
     {
-        initialRouteName: 'WelCome',
+        initialRouteName: 'Login',
         /* The header config from HomeScreen is now here */
         navigationOptions: {
             headerStyle: {
-                backgroundColor: '#f4511e',
+                backgroundColor: Color.dangerColor,
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
