@@ -13,9 +13,14 @@ import {Color} from './theme/thme'
  import Login from './views/Login'
  import Home from './views/Home'
  import WelCome from './views/Welcome'
+ import Forget from './views/Forget'
+ import Registered from './views/Registered'
 
 const App = StackNavigator({
     WelCome: {screen: WelCome},
+    Login: {screen: Login},
+    Registered: {screen: Registered},
+    Forget: {screen: Forget},
     Login: {screen: Login},
     Home: {screen: Home}
     },

@@ -2,7 +2,7 @@ import {StyleSheet} from "react-native";
 
 const Color = {
   textColor: '#fff',
-  defaultColor: '#ccc',
+  defaultColor: '#333',
   primaryColor: '#286090',
   successColor: '#5cb85c',
   waringColor: '#eea236',
