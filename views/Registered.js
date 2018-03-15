@@ -19,7 +19,8 @@ class Login extends React.Component {
   }
 
   static navigationOptions = {
-    title: '注册'
+    title: '注册',
+    gesturesEnabled: false
   }
 
   render() {

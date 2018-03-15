@@ -25,10 +25,12 @@ class Login extends React.Component {
   }
 
   static navigationOptions = {
-    title: '登录欢乐玩'
+    title: '',
+    header: null,
+    headerTransparent: true
   }
   onLogin () {
-    this.props.navigation.push('Home')
+    // this.props.navigation.push('Home')
     // Alert.alert(
     //   '提示',
     //   'My Alert Msg',
