@@ -8,6 +8,9 @@ import React, { Component } from 'react';
 import {
     StackNavigator,
 } from 'react-navigation';
+import { observer } from 'mobx-react'
+import { observable } from 'mobx'
+import store from './stores'
 import {Color} from './theme/thme'
 
  import Login from './views/Login'
@@ -16,26 +19,38 @@ import {Color} from './theme/thme'
  import Forget from './views/Forget'
  import Registered from './views/Registered'
 
-const App = StackNavigator({
+const RootStack = StackNavigator({
     WelCome: {screen: WelCome},
     Login: {screen: Login},
     Registered: {screen: Registered},
     Forget: {screen: Forget},
-    Login: {screen: Login},
     Home: {screen: Home}
+  },
+  {
+    initialRouteName: 'Login',
+    /* The header config from HomeScreen is now here */
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: Color.dangerColor,
+      },
+      header: false,
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      }
     },
-    {
-        initialRouteName: 'Login',
-        /* The header config from HomeScreen is now here */
-        navigationOptions: {
-            headerStyle: {
-                backgroundColor: Color.dangerColor,
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-                fontWeight: 'bold',
-            },
-        },
-    }
-);
+  }
+)
+@observer
+class App extends React.Component {
+  @observable passed = 0
+  componentDidMount () {
+
+  }
+  render() {
+    return (
+      <RootStack store={store}/>
+    );
+  }
+}
 export default App

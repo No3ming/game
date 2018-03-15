@@ -12,27 +12,22 @@ const Color = {
 
 const Theme = StyleSheet.create({
   btnDefault:{
-    color: Color.defaultColor,
     backgroundColor: Color.defaultColor,
     borderColor: Color.borderColor
   },
   btnPrimary:{
-    color: Color.textColor,
     backgroundColor: Color.primaryColor,
     borderColor: Color.primaryColor
   },
   btnSuccess:{
-    color: Color.textColor,
     backgroundColor: Color.successColor,
     borderColor: Color.successColor
   },
   btnWaring:{
-    color: Color.textColor,
     backgroundColor: Color.waringColor,
     borderColor: Color.waringColor
   },
   btnDanger:{
-    color: Color.textColor,
     backgroundColor: Color.dangerColor,
     borderColor: Color.dangerColor
   },

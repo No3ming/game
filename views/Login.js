@@ -9,10 +9,11 @@ import {
   TouchableHighlight,
   Alert
 } from 'react-native';
+import { observer } from 'mobx-react'
 import Button from 'apsl-react-native-button'
 import {Theme, Color} from '../theme/thme'
 
-console.log(Theme)
+@observer
 class Login extends React.Component {
   constructor(props) {
     super(props)
@@ -27,14 +28,15 @@ class Login extends React.Component {
     title: '登录欢乐玩'
   }
   onLogin () {
-    Alert.alert(
-      '提示',
-      'My Alert Msg',
-      [
-        {text: 'OK', onPress: () => this.props.navigation.replace('Home')},
-      ],
-      { cancelable: false }
-    )
+    this.props.navigation.push('Home')
+    // Alert.alert(
+    //   '提示',
+    //   'My Alert Msg',
+    //   [
+    //     {text: 'OK', onPress: () => this.props.navigation.replace('Home')},
+    //   ],
+    //   { cancelable: false }
+    // )
     // this.setState({modalVisible: true})
     // this.props.navigation.replace('Home')
   }
