@@ -12,6 +12,7 @@ import {observer} from 'mobx-react'
 import {observable} from 'mobx'
 import store from './stores'
 import {Color} from './theme/thme'
+import SplashScreen from 'react-native-splash-screen'
 
 import Login from './views/Login'
 import Home from './views/Home'
@@ -33,7 +34,7 @@ const RootStack = StackNavigator({
     Home: {screen: Home}
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'Home',
     navigationOptions: {
       headerStyle: {
         backgroundColor: Color.dangerColor,
@@ -51,7 +52,7 @@ class App extends React.Component {
   @observable passed = 0
 
   componentDidMount() {
-
+    SplashScreen.hide()
   }
 
   render() {

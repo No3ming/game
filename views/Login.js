@@ -13,6 +13,7 @@ import { observer } from 'mobx-react'
 import Button from 'apsl-react-native-button'
 import {Theme, Color} from '../theme/thme'
 
+
 @observer
 class Login extends React.Component {
   constructor(props) {
@@ -29,18 +30,17 @@ class Login extends React.Component {
     header: null,
     headerTransparent: true
   }
+
   onLogin () {
     // this.props.navigation.push('Home')
-    // Alert.alert(
-    //   '提示',
-    //   'My Alert Msg',
-    //   [
-    //     {text: 'OK', onPress: () => this.props.navigation.replace('Home')},
-    //   ],
-    //   { cancelable: false }
-    // )
-    // this.setState({modalVisible: true})
-    // this.props.navigation.replace('Home')
+    Alert.alert(
+      '提示',
+      '登录成功',
+      [
+        {text: 'OK', onPress: () => this.props.navigation.replace('Home')},
+      ],
+      { cancelable: false }
+    )
   }
   setModalVisible (modalVisible) {
     this.setState({modalVisible})
@@ -49,6 +49,9 @@ class Login extends React.Component {
     const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
+        <StatusBar
+          hidden={true}
+        />
         <View style={styles.inputBox}>
           <View style={{height: 200}}/>
           <View style={{height: 100, width: '100%'}}>
